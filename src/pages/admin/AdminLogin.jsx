@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useAuth } from '../../context/AuthContext';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useAuth } from "../../context/AuthContext";
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -13,16 +13,16 @@ const AdminLogin = () => {
     e.preventDefault();
 
     const userData = {
-      name: 'Admin User',
-      email
+      name: "Admin User",
+      email,
     };
 
-    login(userData, 'admin');
-    navigate('/admin/dashboard');
+    login(userData, "admin");
+    navigate("/admin/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-accent py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-accent-main py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,9 @@ const AdminLogin = () => {
         className="card w-full max-w-md p-8"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Portal</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Admin Portal
+          </h1>
           <p className="text-gray-600">Sign in to access the admin dashboard</p>
         </div>
 
@@ -79,8 +81,11 @@ const AdminLogin = () => {
         </form>
 
         <p className="text-center text-gray-600 text-sm mt-6">
-          Not an admin?{' '}
-          <Link to="/login" className="text-primary hover:underline font-medium">
+          Not an admin?{" "}
+          <Link
+            to="/login"
+            className="text-primary hover:underline font-medium"
+          >
             Client Login
           </Link>
         </p>

@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -13,16 +13,16 @@ const Login = () => {
     e.preventDefault();
 
     const userData = {
-      name: 'Emily Johnson',
-      email
+      name: "Emily Johnson",
+      email,
     };
 
-    login(userData, 'client');
-    navigate('/client/dashboard');
+    login(userData, "client");
+    navigate("/client/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-accent py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-accent-main py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,9 @@ const Login = () => {
         className="card w-full max-w-md p-8"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Welcome Back
+          </h1>
           <p className="text-gray-600">Sign in to continue to Metties MedSpa</p>
         </div>
 
@@ -79,15 +81,21 @@ const Login = () => {
         </form>
 
         <p className="text-center text-gray-600 text-sm mt-6">
-          Don't have an account?{' '}
-          <Link to="/register" className="text-primary hover:underline font-medium">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-primary hover:underline font-medium"
+          >
             Register here
           </Link>
         </p>
 
         <p className="text-center text-gray-600 text-sm mt-4">
-          Admin?{' '}
-          <Link to="/admin/login" className="text-primary hover:underline font-medium">
+          Admin?{" "}
+          <Link
+            to="/admin/login"
+            className="text-primary hover:underline font-medium"
+          >
             Admin Login
           </Link>
         </p>

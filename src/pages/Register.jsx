@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useAuth } from "../context/AuthContext";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    password: '',
-    confirmPassword: ''
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
   });
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -17,7 +17,7 @@ const Register = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -26,15 +26,15 @@ const Register = () => {
 
     const userData = {
       name: formData.name,
-      email: formData.email
+      email: formData.email,
     };
 
-    login(userData, 'client');
-    navigate('/client/dashboard');
+    login(userData, "client");
+    navigate("/client/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-accent py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-accent-main py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -42,7 +42,9 @@ const Register = () => {
         className="card w-full max-w-md p-8"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Create Account
+          </h1>
           <p className="text-gray-600">Join Metties MedSpa today</p>
         </div>
 
@@ -128,8 +130,11 @@ const Register = () => {
         </form>
 
         <p className="text-center text-gray-600 text-sm mt-6">
-          Already have an account?{' '}
-          <Link to="/login" className="text-primary hover:underline font-medium">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="text-primary hover:underline font-medium"
+          >
             Sign in here
           </Link>
         </p>

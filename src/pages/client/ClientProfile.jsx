@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { User, Mail, Phone, Calendar, AlertCircle } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { User, Mail, Phone, Calendar, AlertCircle } from "lucide-react";
+import { useAuth } from "../../context/AuthContext";
 
 const ClientProfile = () => {
   const { user } = useAuth();
   const [formData, setFormData] = useState({
-    name: user?.name || 'Emily Johnson',
-    email: user?.email || 'emily.j@email.com',
-    phone: '(555) 123-4567',
-    dob: '1990-05-15',
-    skinType: 'Combination',
-    allergies: 'None'
+    name: user?.name || "Emily Johnson",
+    email: user?.email || "emily.j@email.com",
+    phone: "(555) 123-4567",
+    dob: "1990-05-15",
+    skinType: "Combination",
+    allergies: "None",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -43,14 +43,14 @@ const ClientProfile = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="card p-6 text-center"
         >
-          <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">
+          <div className="w-24 h-24 bg-primary-main rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">
             {formData.name.charAt(0)}
           </div>
-          <h2 className="text-xl font-semibold text-gray-900">{formData.name}</h2>
+          <h2 className="text-xl font-semibold text-gray-900">
+            {formData.name}
+          </h2>
           <p className="text-gray-600 mt-1">{formData.email}</p>
-          <button className="btn-secondary mt-4 w-full">
-            Change Photo
-          </button>
+          <button className="btn-secondary mt-4 w-full">Change Photo</button>
         </motion.div>
 
         <motion.div
@@ -59,7 +59,9 @@ const ClientProfile = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="lg:col-span-2 card p-6"
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Personal Information</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+            Personal Information
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -67,7 +69,11 @@ const ClientProfile = () => {
                   Full Name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <User
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                    color="black"
+                  />
                   <input
                     type="text"
                     name="name"
@@ -83,7 +89,11 @@ const ClientProfile = () => {
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <Mail
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                    color="black"
+                  />
                   <input
                     type="email"
                     name="email"
@@ -99,7 +109,11 @@ const ClientProfile = () => {
                   Phone Number
                 </label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <Phone
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                    color="black"
+                  />
                   <input
                     type="tel"
                     name="phone"
@@ -115,7 +129,11 @@ const ClientProfile = () => {
                   Date of Birth
                 </label>
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <Calendar
+                    color="black"
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                  />
                   <input
                     type="date"
                     name="dob"
@@ -149,7 +167,11 @@ const ClientProfile = () => {
                   Allergies
                 </label>
                 <div className="relative">
-                  <AlertCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <AlertCircle
+                    color="black"
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                  />
                   <input
                     type="text"
                     name="allergies"

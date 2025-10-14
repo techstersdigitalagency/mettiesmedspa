@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send, Search } from 'lucide-react';
-import { mockMessages } from '../../data/mockData';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, Search } from "lucide-react";
+import { mockMessages } from "../../data/mockData";
 
 const AdminMessages = () => {
   const [selectedChat, setSelectedChat] = useState(mockMessages[0]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSend = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      setMessage('');
+      setMessage("");
     }
   };
 
@@ -25,12 +25,15 @@ const AdminMessages = () => {
         <p className="text-gray-600 mt-1">Communicate with your clients</p>
       </motion.div>
 
-      <div className="card overflow-hidden" style={{ height: '600px' }}>
+      <div className="card overflow-hidden" style={{ height: "600px" }}>
         <div className="grid grid-cols-12 h-full">
           <div className="col-span-12 md:col-span-4 border-r border-gray-200 flex flex-col">
             <div className="p-4 border-b border-gray-200">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <Search
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={18}
+                />
                 <input
                   type="text"
                   placeholder="Search clients..."
@@ -44,23 +47,29 @@ const AdminMessages = () => {
                 <div
                   key={chat.id}
                   onClick={() => setSelectedChat(chat)}
-                  className={`p-4 cursor-pointer border-b border-gray-100 hover:bg-accent transition-colors ${
-                    selectedChat?.id === chat.id ? 'bg-accent' : ''
+                  className={`p-4 cursor-pointer border-b border-gray-100 hover:bg-accent-main transition-colors ${
+                    selectedChat?.id === chat.id ? "bg-accent-main" : ""
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
+                    <div className="w-10 h-10 bg-primary-main rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
                       {chat.clientName.charAt(0)}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">
-                        <p className="font-semibold text-gray-900 truncate">{chat.clientName}</p>
+                        <p className="font-semibold text-gray-900 truncate">
+                          {chat.clientName}
+                        </p>
                         {chat.unread && (
-                          <span className="w-2 h-2 bg-primary rounded-full"></span>
+                          <span className="w-2 h-2 bg-primary-main rounded-full"></span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 truncate">{chat.lastMessage}</p>
-                      <p className="text-xs text-gray-400 mt-1">{chat.timestamp}</p>
+                      <p className="text-sm text-gray-600 truncate">
+                        {chat.lastMessage}
+                      </p>
+                      <p className="text-xs text-gray-400 mt-1">
+                        {chat.timestamp}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -73,36 +82,44 @@ const AdminMessages = () => {
               <>
                 <div className="p-4 border-b border-gray-200 bg-white">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-semibold">
+                    <div className="w-10 h-10 bg-primary-main rounded-full flex items-center justify-center text-white font-semibold">
                       {selectedChat.clientName.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">{selectedChat.clientName}</p>
+                      <p className="font-semibold text-gray-900">
+                        {selectedChat.clientName}
+                      </p>
                       <p className="text-sm text-gray-500">Client</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-4 bg-accent">
+                <div className="flex-1 overflow-y-auto p-4 bg-accent-main">
                   <div className="space-y-4">
                     {selectedChat.messages.map((msg, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`flex ${msg.sender === 'admin' ? 'justify-end' : 'justify-start'}`}
+                        className={`flex ${
+                          msg.sender === "admin"
+                            ? "justify-end"
+                            : "justify-start"
+                        }`}
                       >
                         <div
                           className={`max-w-xs px-4 py-2 rounded-lg ${
-                            msg.sender === 'admin'
-                              ? 'bg-primary text-white'
-                              : 'bg-white text-gray-900'
+                            msg.sender === "admin"
+                              ? "bg-primary-main text-white"
+                              : "bg-white text-gray-900"
                           }`}
                         >
                           <p className="text-sm">{msg.text}</p>
                           <p
                             className={`text-xs mt-1 ${
-                              msg.sender === 'admin' ? 'text-white/70' : 'text-gray-500'
+                              msg.sender === "admin"
+                                ? "text-white/70"
+                                : "text-gray-500"
                             }`}
                           >
                             {msg.time}
@@ -113,7 +130,10 @@ const AdminMessages = () => {
                   </div>
                 </div>
 
-                <form onSubmit={handleSend} className="p-4 border-t border-gray-200 bg-white">
+                <form
+                  onSubmit={handleSend}
+                  className="p-4 border-t border-gray-200 bg-white"
+                >
                   <div className="flex gap-2">
                     <input
                       type="text"
@@ -122,7 +142,10 @@ const AdminMessages = () => {
                       placeholder="Type your message..."
                       className="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     />
-                    <button type="submit" className="btn-primary flex items-center gap-2">
+                    <button
+                      type="submit"
+                      className="btn-primary flex items-center gap-2"
+                    >
                       <Send size={18} />
                       Send
                     </button>

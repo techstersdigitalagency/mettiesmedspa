@@ -1,31 +1,31 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Lock, Bell, Trash2 } from 'lucide-react';
-import Modal from '../../components/Modal';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Lock, Bell, Trash2 } from "lucide-react";
+import Modal from "../../components/Modal";
 
 const ClientSettings = () => {
   const [passwords, setPasswords] = useState({
-    current: '',
-    new: '',
-    confirm: ''
+    current: "",
+    new: "",
+    confirm: "",
   });
   const [notifications, setNotifications] = useState({
     email: true,
     sms: true,
     appointments: true,
-    promotions: false
+    promotions: false,
   });
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
-    setPasswords({ current: '', new: '', confirm: '' });
+    setPasswords({ current: "", new: "", confirm: "" });
   };
 
   const handleNotificationChange = (key) => {
     setNotifications({
       ...notifications,
-      [key]: !notifications[key]
+      [key]: !notifications[key],
     });
   };
 
@@ -47,10 +47,12 @@ const ClientSettings = () => {
         className="card p-6"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
-            <Lock size={20} className="text-primary" />
+          <div className="w-10 h-10 bg-primary-main bg-opacity-10 rounded-lg flex items-center justify-center">
+            <Lock size={20} color="white" className="text-primary" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-900">Change Password</h2>
+          <h2 className="text-xl font-semibold text-gray-900">
+            Change Password
+          </h2>
         </div>
 
         <form onSubmit={handlePasswordSubmit} className="space-y-4 max-w-lg">
@@ -61,7 +63,9 @@ const ClientSettings = () => {
             <input
               type="password"
               value={passwords.current}
-              onChange={(e) => setPasswords({ ...passwords, current: e.target.value })}
+              onChange={(e) =>
+                setPasswords({ ...passwords, current: e.target.value })
+              }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="••••••••"
             />
@@ -74,7 +78,9 @@ const ClientSettings = () => {
             <input
               type="password"
               value={passwords.new}
-              onChange={(e) => setPasswords({ ...passwords, new: e.target.value })}
+              onChange={(e) =>
+                setPasswords({ ...passwords, new: e.target.value })
+              }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="••••••••"
             />
@@ -87,7 +93,9 @@ const ClientSettings = () => {
             <input
               type="password"
               value={passwords.confirm}
-              onChange={(e) => setPasswords({ ...passwords, confirm: e.target.value })}
+              onChange={(e) =>
+                setPasswords({ ...passwords, confirm: e.target.value })
+              }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="••••••••"
             />
@@ -106,20 +114,41 @@ const ClientSettings = () => {
         className="card p-6"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
-            <Bell size={20} className="text-primary" />
+          <div className="w-10 h-10 bg-primary-main bg-opacity-10 rounded-lg flex items-center justify-center">
+            <Bell color="white" size={20} className="text-primary" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-900">Notification Preferences</h2>
+          <h2 className="text-xl font-semibold text-gray-900">
+            Notification Preferences
+          </h2>
         </div>
 
         <div className="space-y-4 max-w-lg">
           {[
-            { key: 'email', label: 'Email Notifications', description: 'Receive updates via email' },
-            { key: 'sms', label: 'SMS Notifications', description: 'Receive text message alerts' },
-            { key: 'appointments', label: 'Appointment Reminders', description: 'Get reminded about upcoming appointments' },
-            { key: 'promotions', label: 'Promotional Offers', description: 'Receive special offers and promotions' }
+            {
+              key: "email",
+              label: "Email Notifications",
+              description: "Receive updates via email",
+            },
+            {
+              key: "sms",
+              label: "SMS Notifications",
+              description: "Receive text message alerts",
+            },
+            {
+              key: "appointments",
+              label: "Appointment Reminders",
+              description: "Get reminded about upcoming appointments",
+            },
+            {
+              key: "promotions",
+              label: "Promotional Offers",
+              description: "Receive special offers and promotions",
+            },
           ].map((item) => (
-            <div key={item.key} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0">
+            <div
+              key={item.key}
+              className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+            >
               <div>
                 <p className="font-medium text-gray-900">{item.label}</p>
                 <p className="text-sm text-gray-600">{item.description}</p>
@@ -127,12 +156,12 @@ const ClientSettings = () => {
               <button
                 onClick={() => handleNotificationChange(item.key)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  notifications[item.key] ? 'bg-primary' : 'bg-gray-300'
+                  notifications[item.key] ? "bg-primary-main" : "bg-gray-300"
                 }`}
               >
                 <span
                   className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    notifications[item.key] ? 'translate-x-6' : 'translate-x-1'
+                    notifications[item.key] ? "translate-x-6" : "translate-x-1"
                   }`}
                 />
               </button>
@@ -155,7 +184,8 @@ const ClientSettings = () => {
         </div>
 
         <p className="text-gray-600 mb-4">
-          Once you delete your account, there is no going back. Please be certain.
+          Once you delete your account, there is no going back. Please be
+          certain.
         </p>
 
         <button
@@ -166,10 +196,15 @@ const ClientSettings = () => {
         </button>
       </motion.div>
 
-      <Modal isOpen={isDeleteModalOpen} onClose={() => setIsDeleteModalOpen(false)} title="Delete Account">
+      <Modal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        title="Delete Account"
+      >
         <div className="space-y-4">
           <p className="text-gray-700">
-            Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.
+            Are you sure you want to delete your account? This action cannot be
+            undone and all your data will be permanently removed.
           </p>
           <div className="flex gap-4">
             <button

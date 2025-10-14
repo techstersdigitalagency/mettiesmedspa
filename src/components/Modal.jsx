@@ -1,5 +1,5 @@
-import { X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Modal = ({ isOpen, onClose, title, children }) => {
   return (
@@ -23,7 +23,7 @@ const Modal = ({ isOpen, onClose, title, children }) => {
               <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
               <button
                 onClick={onClose}
-                className="p-1 hover:bg-accent rounded-lg transition-colors"
+                className="p-1 hover:bg-accent-main rounded-lg transition-colors"
               >
                 <X size={20} />
               </button>

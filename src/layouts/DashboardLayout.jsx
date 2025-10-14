@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-accent">
+    <div className="min-h-screen bg-accent-main">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className="lg:ml-64 transition-all duration-300">
         <Navbar setSidebarOpen={setSidebarOpen} />
