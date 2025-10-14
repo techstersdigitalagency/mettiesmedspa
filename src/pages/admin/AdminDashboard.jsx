@@ -47,31 +47,31 @@ const AdminDashboard = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-3xl font-bold text-gray-900">Hello, Makareya 👋</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Hello, Makareya 👋</h1>
         <p className="text-gray-600 mt-1">Detailed information about your health</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="lg:col-span-2"
         >
-          <div className="card p-8 bg-gradient-to-r from-[#f10e6a] to-[#ff6b9d] text-white relative overflow-hidden rounded-3xl">
+          <div className="card p-6 sm:p-8 bg-gradient-to-r from-[#f10e6a] to-[#ff6b9d] text-white relative overflow-hidden rounded-3xl">
             <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-2">Welcome to Patient Service</h2>
-              <h2 className="text-2xl font-bold mb-6">Management Dashboard 😊</h2>
-              <div className="flex gap-4">
-                <button className="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors font-medium">
+              <h2 className="text-xl sm:text-2xl font-bold mb-2">Welcome to Patient Service</h2>
+              <h2 className="text-xl sm:text-2xl font-bold mb-6">Management Dashboard</h2>
+              <div className="flex flex-wrap gap-4">
+                <button className="px-4 sm:px-6 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors font-medium text-sm sm:text-base">
                   See Appointment
                 </button>
-                <button className="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors font-medium border border-white/30">
+                <button className="px-4 sm:px-6 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors font-medium border border-white/30 text-sm sm:text-base">
                   Regular Checkup
                 </button>
               </div>
             </div>
-            <div className="absolute right-0 top-0 w-64 h-full opacity-20">
+            <div className="absolute right-0 top-0 w-48 sm:w-64 h-full opacity-20">
               <svg viewBox="0 0 200 200" className="w-full h-full">
                 <rect x="60" y="40" width="80" height="100" fill="white" rx="4" />
                 <rect x="70" y="60" width="60" height="60" fill="currentColor" rx="2" />
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {healthMetrics.map((metric, index) => (
           <motion.div
             key={metric.name}
@@ -125,7 +125,7 @@ const AdminDashboard = () => {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="text-sm text-gray-600 mb-1">{metric.name}</p>
-                <p className="text-2xl font-bold text-gray-900">{metric.value}</p>
+                <p className="text-xl sm:text-2xl font-bold text-gray-900">{metric.value}</p>
               </div>
               <div className="relative w-16 h-16">
                 <svg className="transform -rotate-90 w-16 h-16">
@@ -160,7 +160,7 @@ const AdminDashboard = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
           className="lg:col-span-2 card p-6 rounded-2xl"
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">Doctor's List</h2>
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Doctor's List</h2>
             <button className="text-primary text-sm hover:underline">See All →</button>
           </div>
           <div className="overflow-x-auto">
@@ -221,7 +221,7 @@ const AdminDashboard = () => {
           className="card p-6 rounded-2xl"
         >
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-gray-900">Appointment Timeline</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Appointment Timeline</h3>
             <button className="text-primary text-sm hover:underline">See All →</button>
           </div>
           <div className="space-y-6">
@@ -258,7 +258,7 @@ const AdminDashboard = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -266,7 +266,7 @@ const AdminDashboard = () => {
           className="card p-6 rounded-2xl"
         >
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-gray-900">Messages</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Messages</h3>
           </div>
           <div className="space-y-4">
             <div className="flex items-center gap-3 p-3 hover:bg-accent rounded-lg transition-colors cursor-pointer">
@@ -303,14 +303,14 @@ const AdminDashboard = () => {
           className="card p-6 rounded-2xl"
         >
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-gray-900">Schedule</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Schedule</h3>
             <div className="flex gap-2">
               <button className="text-gray-400 hover:text-gray-600">←</button>
               <span className="text-sm text-gray-600">August 2023</span>
               <button className="text-gray-400 hover:text-gray-600">→</button>
             </div>
           </div>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2">
             {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
               <div key={day} className="text-center text-xs font-medium text-gray-500 mb-2">
                 {day}
@@ -323,7 +323,7 @@ const AdminDashboard = () => {
               return (
                 <div
                   key={i}
-                  className={`aspect-square flex items-center justify-center text-sm rounded-lg cursor-pointer transition-colors ${
+                  className={`aspect-square flex items-center justify-center text-xs sm:text-sm rounded-lg cursor-pointer transition-colors ${
                     day < 1 ? 'text-gray-300' :
                     isToday ? 'bg-[#f10e6a] text-white font-medium' :
                     hasEvent ? 'bg-[#f10e6a] text-white' :
@@ -345,10 +345,10 @@ const AdminDashboard = () => {
         className="card p-6 rounded-2xl"
       >
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-semibold text-gray-900">Documents By Doctors</h3>
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Documents By Doctors</h3>
           <button className="text-primary text-sm hover:underline">See All →</button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="flex items-center gap-3 p-4 border border-gray-200 rounded-xl hover:border-primary transition-colors cursor-pointer">
             <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#f10e6a]/10 to-[#ff6b9d]/10 flex items-center justify-center">
               <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
