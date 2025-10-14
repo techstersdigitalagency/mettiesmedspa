@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
-const Login = () => {
+const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -13,12 +13,12 @@ const Login = () => {
     e.preventDefault();
 
     const userData = {
-      name: 'Emily Johnson',
+      name: 'Admin User',
       email
     };
 
-    login(userData, 'client');
-    navigate('/client/dashboard');
+    login(userData, 'admin');
+    navigate('/admin/dashboard');
   };
 
   return (
@@ -30,8 +30,8 @@ const Login = () => {
         className="card w-full max-w-md p-8"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-          <p className="text-gray-600">Sign in to continue to Metties MedSpa</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Portal</h1>
+          <p className="text-gray-600">Sign in to access the admin dashboard</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -44,7 +44,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              placeholder="you@example.com"
+              placeholder="admin@metties.com"
               required
             />
           </div>
@@ -74,21 +74,14 @@ const Login = () => {
           </div>
 
           <button type="submit" className="btn-primary w-full">
-            Sign In
+            Sign In as Admin
           </button>
         </form>
 
         <p className="text-center text-gray-600 text-sm mt-6">
-          Don't have an account?{' '}
-          <Link to="/register" className="text-primary hover:underline font-medium">
-            Register here
-          </Link>
-        </p>
-
-        <p className="text-center text-gray-600 text-sm mt-4">
-          Admin?{' '}
-          <Link to="/admin/login" className="text-primary hover:underline font-medium">
-            Admin Login
+          Not an admin?{' '}
+          <Link to="/login" className="text-primary hover:underline font-medium">
+            Client Login
           </Link>
         </p>
       </motion.div>
@@ -96,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;

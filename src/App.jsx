@@ -15,6 +15,7 @@ import ClientMessages from './pages/client/ClientMessages';
 import ClientProfile from './pages/client/ClientProfile';
 import ClientSettings from './pages/client/ClientSettings';
 
+import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminClients from './pages/admin/AdminClients';
 import AdminAppointments from './pages/admin/AdminAppointments';
@@ -46,6 +47,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
           </Route>
 
           <Route
