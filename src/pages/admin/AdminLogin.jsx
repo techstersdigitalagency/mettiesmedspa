@@ -41,7 +41,7 @@ const AdminLogin = () => {
           </button>
 
           <div className="mb-8">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#f10e6a] to-[#ff6b9d] rounded-xl flex items-center justify-center mb-6">
+            <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
               <Shield className="text-white" size={24} />
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
@@ -58,7 +58,10 @@ const AdminLogin = () => {
                 E-mail Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Mail
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={20}
+                />
                 <input
                   type="email"
                   value={email}
@@ -75,7 +78,10 @@ const AdminLogin = () => {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Lock
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={20}
+                />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
@@ -100,13 +106,13 @@ const AdminLogin = () => {
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 rounded border-gray-300 text-[#f10e6a] focus:ring-[#f10e6a]"
+                  className="w-4 h-4 rounded border-gray-300 text-[#101C2F] focus:ring-[#101C2F]"
                 />
                 <span className="ml-2 text-gray-600">Remember me</span>
               </label>
               <Link
                 to="/forgot-password"
-                className="text-[#f10e6a] hover:underline font-medium"
+                className="text-[#101C2F] hover:underline font-medium"
               >
                 Forgot password?
               </Link>
@@ -114,7 +120,7 @@ const AdminLogin = () => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#f10e6a] to-[#ff6b9d] text-white py-3.5 rounded-xl font-semibold hover:shadow-lg transition-all shadow-md"
+              className="w-full bg-gray-900 text-white py-3.5 rounded-xl font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl cursor-pointer"
             >
               Sign In as Admin
             </button>
@@ -125,7 +131,7 @@ const AdminLogin = () => {
               Not an admin?{" "}
               <Link
                 to="/login"
-                className="text-[#f10e6a] hover:underline font-semibold"
+                className="text-[#101C2F] hover:underline font-semibold"
               >
                 Client Login
               </Link>

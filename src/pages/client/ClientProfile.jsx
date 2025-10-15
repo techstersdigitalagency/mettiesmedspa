@@ -6,10 +6,10 @@ import { useAuth } from "../../context/AuthContext";
 const ClientProfile = () => {
   const { user } = useAuth();
   const [formData, setFormData] = useState({
-    name: user?.name || "Emily Johnson",
-    email: user?.email || "emily.j@email.com",
-    phone: "(555) 123-4567",
-    dob: "1990-05-15",
+    name: user?.name || "Daniel Fajuyi",
+    email: user?.email || "danielfajuyi1@gmail.com",
+    phone: "09033148179",
+    dob: "2001-05-15",
     skinType: "Combination",
     allergies: "None",
   });
